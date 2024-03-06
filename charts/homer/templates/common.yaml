@@ -18,6 +18,12 @@
       name: "{{ include "common.names.fullname" . }}-config"
       mountPath: "/www/assets/config.yml"
       subPath: "config.yml"
+    admin:
+      enabled: true
+      type: "configMap"
+      name: "{{ include "common.names.fullname" . }}-config"
+      mountPath: "/www/assets/admin.yml"
+      subPath: "admin.yml"
   {{- end }}
 {{- end -}}
 {{- $_ := mergeOverwrite .Values (include "homer.harcodedValues" . | fromYaml) -}}
